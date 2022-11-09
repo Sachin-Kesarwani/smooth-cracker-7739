@@ -1,0 +1,170 @@
+#nav{
+    border: 1px solid rgb(255, 255, 255);
+    height: 80px;
+    width: 98%;
+    margin: auto;
+    display: flex;
+    /* overflow: hidden; */
+    background-color: rgb(242, 187, 109);
+    position: fixed;
+    top: 0;
+    justify-content:space-evenly;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+#nav>#logo{
+     width: 120px; 
+     height: 100%;
+     border: 1px solid rgb(255, 255, 255);
+     display: block;
+}
+#nav>#logo>img{
+    width: 100%;
+    height: 100%;
+
+}
+#search{
+    border:  rgb(242, 187, 109);
+    width: 50%;
+    margin-top: 20px;
+    height: 40px;
+   /* padding-top: 20px; */
+}
+#login{
+    border: 1px solid rgb(242, 187, 109);
+    width: 7%;
+    height: auto;
+}
+#login>h1{
+    color: rgb(0, 17, 255);
+
+}
+#search>input{
+    width: 70%;
+    height: 80%;
+  border: 1px solid white;
+    border-radius: 25px 0px 0px 25px;
+}
+#search>button{
+    width: 15%;
+    height: 95%;
+   
+    border-radius: 0px 25px 25px 0px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+/* #dropdown{
+    border: 1px solid brown;
+    padding-top: 30px;
+    /* width:2%; */
+ 
+
+.dropbtn {
+    background-color:  rgb(242, 187, 109);
+    color: white;
+    padding: 16px;
+    font-size: 25px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    padding-top: 10px;
+    font: optional;
+    font-size: 20px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    color: white;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+  }
+  
+  .dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: rgb(245, 12, 12);
+    color: white;
+}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {
+   color: black;
+}
+
+
+
+#gif{
+  display: block;
+  margin: auto;
+  width: 30%;
+  margin-left: 35%;
+  margin-right: 35%;
+  border: 1px solid #ffffff;
+  position: fixed; 
+  top: 20vh;
+  overflow: hidden;
+ 
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+ }
+ #gif >img{
+width:100%;
+ }
+ #slideimage{
+  width: 70%;
+  margin: auto;
+ margin-top: 16vh;
+  border: 1px solid black;
+  height: 70vh;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+ }
+ #slideimage>img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+ }
+
+
+ @media screen and (min-width:800px) and (max-width:1000px){
+#gif{
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+ }
+ @media screen and (min-width:600px) and (max-width:699px){
+  #gif{
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+}
+@media screen and (min-width:400px) and (max-width:599px){
+  #gif{
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+@media screen and (min-width:100px) and (max-width:399px){
+  #gif{
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+ 

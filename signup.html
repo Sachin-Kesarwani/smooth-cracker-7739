@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #box{
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            margin: auto;
+            height: 70vh;
+            border: 1px solid rgb(255, 255, 255);
+            margin-top: 10vh;
+            border-radius: 15px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+        #box>div:nth-child(1) {
+            width: 70%;
+            height: 70vh;
+            border: 1px solid rgb(255, 255, 255);
+            background-color: aquamarine;
+            border-radius: 15px 0px 0px 15px;
+        }
+        #box>div:nth-child(2) {
+            width: 30%;
+            height: auto;
+            border: 1px solid rgb(255, 255, 255);
+            padding-left: 5%;
+            border-radius: 0px 15px 15px 0px;
+            background-color: rgb(227, 190, 134);
+        }
+        #box>div>img{
+            width:100% ;
+            height: 70vh;
+            border-radius: 15px 0px 0px 15px;
+        }
+       form>input{
+        width: 70%;
+       padding: 10px;
+       border: 0px solid black;
+       border-radius: 5px;
+       }
+       #submit{
+       font-size: 20px;
+       background-color: rgb(220, 20, 20);
+       color: white;
+       border: 1px solid  rgb(220, 20, 20);
+     
+       }
+       @media screen and (min-width:800px) and (max-width:1000px){
+        #box>div:nth-child(1) {
+            width: 50%;
+            height: 70vh;
+       }
+       #box>div:nth-child(2) {
+            width: 50%;
+            height: auto;
+       }
+     
+    }
+    @media screen and (min-width:600px) and (max-width:799px){
+        #box>div:nth-child(1) {
+            width: 50%;
+            height: 70vh;
+       }
+       #box>div:nth-child(2) {
+            width: 50%;
+            height: auto;
+       }
+    }
+    @media screen and (min-width:100px) and (max-width:599px){
+        #box{
+            display: flex;
+            flex-direction: column;
+          height: auto;
+            width: 90%;
+        }
+        #box>div:nth-child(1) {
+            display: inline;
+            width: 100%;
+            height: 70vh;
+       }
+       #box>div:nth-child(2) {
+            width: 95%;
+            height: auto;
+            padding-bottom: 10px;
+       }
+    }
+    form>h1{
+        color: green;
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4O6g1GUO-ai9-ojKdzqAcLxBmeE0j5depJvbHoM_w3JUCC7kl8VS3ySYzQK2x-6ODjOw&usqp=CAU">
+        </div>
+        <div>
+            <form>
+                <h1>Signup</h1>
+                <labe for="name">Full Name</labe><br>
+                <input type="text" placeholder="Enter Your Name" id="name" required><br><br>
+                <label for="email">Email</label><br>
+                <input type="email" id="email" placeholder="Enter Your Email" required><br><br>
+                <label for="password">Password</label><br>
+                <input type="number" id="password" placeholder="Enter at least 8 char paassword"><br><br>
+                <input type="submit" id="submit">
+                <p>If you have signup then you can <a href="login.html">Login</a></p>
+            </form>
+           
+        </div>
+    </div>
+</body>
+</html>
+<script>
+       let count=1
+       LSdata=JSON.parse(localStorage.getItem("WBsignup"))||[]
+       let form=document.querySelector("form")
+       form.addEventListener("submit",function(e){
+        e.preventDefault()
+        let obj={
+            name:form.name.value,
+            email:form.email.value,
+            password:form.password.value,
+            id:count
+        }
+        let flag=true
+         if(obj.email!=""){
+            LSdata.forEach((e)=>{
+                if(e.email==obj.email){
+                    flag=false
+                    // alert("This user is already exist")
+                }
+            })
+         }
+
+         if(flag==false){
+            alert("This user is already exist")
+            window.location.href="login.html"
+         }else{
+            LSdata.push(obj)
+            localStorage.setItem("WBsignup",JSON.stringify(LSdata))
+            count++
+            alert("You Successfully Signup")
+         }
+
+
+
+       })
+</script>

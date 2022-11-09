@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #box{
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            margin: auto;
+            height: 70vh;
+            border: 1px solid rgb(255, 255, 255);
+            margin-top: 10vh;
+            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+            border-radius: 15px;
+        }
+        #box>div:nth-child(1) {
+            width: 70%;
+            height: 70vh;
+            border: 1px solid rgb(255, 255, 255);
+            background-color: aquamarine;
+            border-radius: 15px 0px 0px 15px;
+        }
+        #box>div:nth-child(2) {
+            width: 30%;
+            height: auto;
+            border: 1px solid rgb(255, 255, 255);
+            padding-left: 5%;
+            padding-top: 5%;
+            background-color: blanchedalmond;
+            border-radius: 0px 15px 15px 0px;
+        }
+        #box>div>img{
+            width:100% ;
+            height: 70vh;
+            border-radius: 15px 0px 0px 15px;
+        }
+       form>input{
+        width: 70%;
+       padding: 10px;
+       border: 0px solid black;
+       border-radius: 5px;
+       }
+       #submit{
+       font-size: 20px;
+       background-color: rgb(93, 220, 20);
+       color: white;
+       border: 1px solid  rgb(255, 255, 255);
+     
+       }
+       @media screen and (min-width:800px) and (max-width:1000px){
+        #box>div:nth-child(1) {
+            width: 50%;
+            height: 70vh;
+       }
+       #box>div:nth-child(2) {
+            width: 50%;
+            height: auto;
+       }
+     
+    }
+    @media screen and (min-width:600px) and (max-width:799px){
+        #box>div:nth-child(1) {
+            width: 50%;
+            height: 70vh;
+       }
+       #box>div:nth-child(2) {
+            width: 50%;
+            height: auto;
+       }
+    }
+    @media screen and (min-width:100px) and (max-width:599px){
+        #box{
+            display: flex;
+            flex-direction: column;
+          height: auto;
+            width: 90%;
+        }
+        #box>div:nth-child(1) {
+            display: inline;
+            width: 100%;
+            height: 70vh;
+       }
+       #box>div:nth-child(2) {
+            width: 95%;
+            height: auto;
+            padding-bottom: 10px;
+       }
+    }
+    </style>
+</head>
+<body>
+   <div id="box">
+           
+            <div>
+                <img src="https://c4.wallpaperflare.com/wallpaper/1001/1007/748/welcome-back-winter-wallpaper-preview.jpg">
+            </div>
+            <div>
+                <form>
+                    <h1>Signin</h1>
+                    <label for="email">Email</label><br>
+                    <input type="email" placeholder="Enter Your Email" id="email" required><br><br>
+                     <label for="password">Password</label><br>
+                     <input type="password" placeholder="Enter Password" id="password"><br><br>
+                     <input type="submit" id="submit">
+                </form>
+                <p>If you are new then ,please first  <a href="signup.html">Signup</a></p>
+            </div>
+   </div>
+</body>
+</html>
+<script> 
+
+
+
+            let LSdata=JSON.parse(localStorage.getItem("WBsignup"))
+            let form=document.querySelector("form")
+            form.addEventListener("submit",function(e){
+                console.log(LSdata)
+                e.preventDefault()
+                let flag=false
+                let email=false
+               if(form.email.value!=""){
+              
+                LSdata.forEach((e)=>{
+                 
+                    
+                    if(e.email==form.email.value){
+                        email=true
+                        flag=true
+                        if(e.password==form.password.value){
+                            alert("You Successfully Login")
+                            window.location.href="dashboard.html"
+                     
+                            
+                        }else{
+                            alert("Password Incorrect")
+                          
+                        }
+                    }
+                })
+               }
+               if(email==false){
+                alert("You have not still Signup , Please signup")
+                window.location.href="signup.html"
+                     
+               }
+             
+
+            })
+
+
+
+</script>
