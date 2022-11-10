@@ -1,0 +1,85 @@
+   
+
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dashboard.css">
+   </head>
+   <body>
+    <div>
+        <h1>Total Price</h1><span></span>
+        <button>Buy Now</button>
+    </div>
+    <div id="box">
+
+    </div>
+   </body>
+   </html>
+
+   <script>
+    let LSdata=JSON.parse(localStorage.getItem("cartWB"))
+    let LSimage=JSON.parse(localStorage.getItem("arrimage"))
+     let box=document.querySelector("#box")
+     
+    function display(data){
+        box.innerText=null
+        data.forEach((e,index)=>{
+            let div=document.createElement("div")
+    let img=document.createElement("img")
+    img.src=LSimage[e.index]
+    img.addEventListener("click",function(){
+        e.img=LSimage[e.index]
+        localStorage.setItem("description",JSON.stringify(e))
+        window.location.href="description.html"
+        // createdesc(e,e.index)
+    })
+    let name=document.createElement("h1")
+    name.innerText=e.name
+    let desc=document.createElement("p")
+    desc.innerText= e.description1
+    let price=document.createElement("p")
+    price.innerText= "Price : "+e.price
+    let rating=document.createElement("p")
+    rating.innerText= "Rating : "+e.rating/10+"*"
+    let category=document.createElement("h5")
+    category.innerText=e.category
+  let buy=document.createElement("button")
+  buy.innerText="Buy Now"
+  buy.setAttribute("class","buy")
+  let div2=document.createElement("div")
+  div2.style.display="flex"
+  div2.style.justifyContent="center"
+
+  let inc=document.createElement("button")
+  inc.innerText="+"
+  let pcs=document.createElement("span")
+  pcs.innerText="1"
+  let dec=document.createElement("button")
+dec.innerText="-"
+div2.append(inc,pcs,dec)
+  let cart=document.createElement("button")
+ cart.innerText="Remove"
+ cart.addEventListener("click",function(){
+   remove(e,index)
+ })
+ cart.setAttribute("class","cart")
+    div.append(img,name,price,rating,category,div2,buy,cart)
+    box.append(div)
+})
+    }
+    display(LSdata)
+    
+       
+
+    function remove(obj,i){
+          LSdata.splice(i,1)
+          LSimage.splice(i,1)
+          localStorage.setItem("cartWB",JSON.stringify(LSdata))
+          localStorage.setItem("arrimage",JSON.stringify(LSimage))
+          display(LSdata)
+    }
+   </script>

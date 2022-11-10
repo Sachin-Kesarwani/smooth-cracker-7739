@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: sans-serif
+        }
+        #div{
+            display: flex;
+            width: 80%;
+            margin: auto;
+        }
+        #div>div:nth-child(1){
+            width: 50%;
+            height: 70vh;
+            border: 1px solid red;
+            /* overflow: scroll; */
+        }
+        #div>div:nth-child(2){
+            width: 50%;
+            height: 70vh;
+            border: 1px solid rgb(0, 0, 0);
+            overflow: scroll;
+            background-color: antiquewhite;
+        }
+        #div>div>img{
+            width: 40vw;
+            height: 70vh;
+            margin: auto;
+        }
+        p{
+            font-size: 25px;
+        }
+        @media screen and (min-width:100px) and (max-width:600px){
+            #div{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                margin: auto;
+            }
+            #div>div:nth-child(1){
+                width: 100%;
+            
+            }
+            #div>div:nth-child(2){
+                width: 100%;
+            }
+            #div>div>img{
+               height: 50vh;
+               width: 100vw;
+            }
+        }
+    </style>
+</head>
+<body>
+   <h1>Thanks for Trust</h1>
+   <div id="div"></div>
+</body>
+</html>
+<script>
+    let LSdata=JSON.parse(localStorage.getItem("description"))
+    console.log(LSdata)
+          let box=document.querySelector("#div")
+
+    function display(LSdata){
+           let div1=document.createElement("div")
+           let div2=document.createElement("div")
+           let cross=document.createElement("h1")
+           cross.innerText="x"
+           let name=document.createElement("h1")
+           name.innerText=LSdata.name
+           let img=document.createElement("img")
+           img.src=LSdata.img
+           div1.append(img)
+           let price=document.createElement("h3")
+           price.innerText="Price : ₹"+LSdata.price
+            let  rating=document.createElement("h3")
+            rating.innerText="Rating : "+LSdata.rating/10+"*"
+            let category=document.createElement("h3")
+            category.innerText=LSdata.category
+            let desc=document.createElement("p")
+            desc.innerText=LSdata.description1+LSdata.details
+
+            div2.append(name,price,rating,category,desc)
+             box.append(div1,div2)
+    }
+    display(LSdata)
+</script>
