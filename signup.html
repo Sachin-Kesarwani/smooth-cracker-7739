@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Signup</title>
     <style>
           #box{
             display: flex;
@@ -37,7 +37,7 @@
             height: 70vh;
             border-radius: 15px 0px 0px 15px;
         }
-       form>input{
+       #name,#email,#password{
         width: 70%;
        padding: 10px;
        border: 0px solid black;
@@ -45,6 +45,9 @@
        }
        #submit{
        font-size: 20px;
+       width: 70%;
+       padding: 10px;
+       border-radius: 5px;
        background-color: rgb(220, 20, 20);
        color: white;
        border: 1px solid  rgb(220, 20, 20);
@@ -107,7 +110,9 @@
                 <label for="email">Email</label><br>
                 <input type="email" id="email" placeholder="Enter Your Email" required><br><br>
                 <label for="password">Password</label><br>
-                <input type="number" id="password" placeholder="Enter at least 8 char paassword" required minlength="8"><br><br>
+                <input type="number" id="password" placeholder="Enter at least 8 char paassword" required minlength="8"><br>
+                <input type="checkbox" id="remember" name="remember" value="remember">
+                <label for="remeber">Remember</label><br><br>
                 <input type="submit" id="submit">
                 <p>If you have signup then you can <a href="login.html">Login</a></p>
             </form>
@@ -146,6 +151,7 @@
             localStorage.setItem("WBsignup",JSON.stringify(LSdata))
             count++
             alert("You Successfully Signup")
+            window.location.href="dashboard.html"
          }
 
 
