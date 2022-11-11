@@ -7,7 +7,7 @@
     margin: auto;
     display: flex;
     /* overflow: hidden; */
-    background-color: rgb(242, 187, 109);
+    background-color: rgb(237, 155, 83);
     position: fixed;
     top: 0;
     justify-content:space-evenly;
@@ -25,14 +25,14 @@
 
 }
 #search{
-    border:  rgb(242, 187, 109);
+  background-color: rgb(237, 155, 83);
     width: 50%;
     margin-top: 20px;
     height: 40px;
    /* padding-top: 20px; */
 }
 #login{
-    border: 1px solid rgb(242, 187, 109);
+    border: 0px solid rgb(242, 187, 109);
     width: 7%;
     height: auto;
     display: flex;
@@ -54,6 +54,7 @@ a:hover{
     height: 80%;
   border: 1px solid white;
     border-radius: 25px 0px 0px 25px;
+    font-size: 15px;
 }
 #search>button{
     width: 15%;
@@ -70,7 +71,7 @@ a:hover{
  
 
 .dropbtn {
-    background-color:  rgb(242, 187, 109);
+  background-color: rgb(237, 155, 83);
     color: white;
     padding: 16px;
     font-size: 25px;
@@ -138,7 +139,7 @@ width:100%;
   width: 70%;
   margin: auto;
  margin-top: 16vh;
-  border: 1px solid black;
+  border: 1px solid rgb(250, 250, 250);
   height: 70vh;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -147,7 +148,10 @@ width:100%;
   width: 100%;
   height: 100%;
   border-radius: 10px;
- }
+ }  .responsive {
+  width: 100%;
+  height: auto;
+}
  .heading{
   text-align: center;
   font-size: 40px;
@@ -157,6 +161,7 @@ width:100%;
  #dashbook,#dashstationary,#dashtech, #box{
   display: grid;
   grid-template-columns: repeat(4,1fr);
+  grid-template-rows: auto;
   width: 90%;
   margin: auto;
   column-gap: 1%;
@@ -170,6 +175,7 @@ width:100%;
   width: 100%;
   height: auto;
   color: #1987ee;
+  border-radius: 5px;
   text-align: center;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
@@ -177,31 +183,100 @@ width:100%;
   background-color: rgb(251, 234, 191);
   color: rgb(0, 0, 0);
   text-align: center;
-  
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(35, 162, 190) 0px 0px 0px 3px;
 }
 #dashbook>div>img ,#dashstationary>div>img ,#dashtech>div>img ,#box>div>img{
   width: 100%;
-  height: 50%;
+  height: 40%;
+  border-radius: 5px;
 }
 .buy{
  margin: 10px;
   height: auto;
   font-size: 15px;
-  background-color: rgb(56, 231, 37);
+  background-color: rgb(37, 228, 231);
   color: white;
   border: 1px solid rgb(255, 255, 255);
   text-align: center;
+  padding: 1vh;
+  border-radius: 4px;
+}
+.buy:hover{
+  background-color: rgb(53, 227, 53);
 }
 .cart {
   margin: 10px;
    height: auto;
    font-size: 15px;
+   border-radius: 4px;
    color: white;
-   background-color: rgb(255, 0, 0);
+   background-color: rgb(255, 127, 23);
    border: 1px solid rgb(255, 255, 255);
    text-align: center;
+   padding: 1vh;
  }
- @media screen and (min-width:800px) and (max-width:1000px){
+ 
+.cart:hover{
+  background-color: rgb(46, 205, 38);
+  color: white;
+}
+#comment{
+  border: 1px solid black;
+  width: 90%;
+  margin: auto;
+}
+ #footer{
+
+  width: 100%;
+  height: 18vh;
+  background-color: #000000;
+  border: 1px solid rgb(255, 255, 255);
+ } 
+ #footer>div{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+ }
+ #fa {
+  padding: 20px;
+  font-size: 25px;
+  width: 50px;
+  text-align: center;
+  border-radius: 48%;
+  text-decoration: none;
+  margin: 5px 2px;
+  opacity: 1.0;
+}
+#fa:hover {
+  /* padding: 22px; */
+  font-size: 30px;
+  opacity: 1.5;
+  /* width: 50px;
+  text-align: center;
+  border-radius:50%;
+  text-decoration: none;
+  margin: 5px 2px; */
+}
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-facebook {
+  background: #ffffff;
+  color: rgb(17, 34, 218);
+}
+.fa-youtube {
+  background: #f32525;
+  color: rgb(230, 230, 230);
+}
+.fa-google {
+  background: #ffffff;
+  color: rgb(75, 103, 206);
+}
+/* .fa:hover {
+  opacity: 0.9;
+} */
+ @media screen and (min-width:1000px) and (max-width:1100px){
 #gif{
   width: 40%;
   margin-left: 30%;
@@ -211,7 +286,7 @@ width:100%;
  #dashbook ,#dashstationary ,#dashtech ,#box{
   grid-template-columns: repeat(4,1fr);
  }
- @media screen and (min-width:600px) and (max-width:799px){
+ @media screen and (min-width:700px) and (max-width:999px){
   #gif{
     width: 50%;
     margin-left: 25%;
@@ -229,8 +304,12 @@ width:100%;
    #login{
     display: none;
    }
+   #dashbook>div>img ,#dashstationary>div>img ,#dashtech>div>img ,#box>div>img{
+    width: 100%;
+    height: 40%;
+  }
 }
-@media screen and (min-width:450px) and (max-width:599px){
+@media screen and (min-width:450px) and (max-width:699px){
   #gif{
     width: 60%;
     margin-left: 20%;
@@ -245,6 +324,10 @@ width:100%;
    #login{
     display: none;
    }
+   #dashbook>div>img ,#dashstationary>div>img ,#dashtech>div>img ,#box>div>img{
+    width: 100%;
+    height: 30%;
+  }
 }
 @media screen and (min-width:100px) and (max-width:499px){
   #gif{
@@ -258,10 +341,14 @@ width:100%;
     top:5vh
   }
   #dashbook ,#dashstationary ,#dashtech ,#box{
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: repeat(2,1fr);
    }
    #login{
     display: none;
    }
+   #dashbook>div>img ,#dashstationary>div>img ,#dashtech>div>img ,#box>div>img{
+    width: 100%;
+    height: 30%;
+  }
 }
  

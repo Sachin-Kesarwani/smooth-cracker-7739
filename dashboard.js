@@ -20,11 +20,11 @@
  
 
   let slideArr=["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbXCpiYKfm11YUjU715AE4xto0XO6fzBiL8Q&usqp=CAU",
-                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXJCoP24Rx_qV4cMEGVbMXBYk4o3E9btmUbg&usqp=CAU",
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEn4ey6b7A6GSVBTddkATLh891SB2YB-e0mg&usqp=CAU",
+                 "https://media.istockphoto.com/id/516114240/photo/colorful-school-and-office-supplies.jpg?s=612x612&w=0&k=20&c=s4OeoA-4riVsFzgHJijxTC9MGLQgmrz6y40O9mEt-2k=",
+                "https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3RhdGlvbmVyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
               "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRAY0KszZ1jDKSVvCH2r2K6LW3mWBxaRtQqPMxYv3KiYsVtpXvkHOm1TPM",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3SwX529LOk8gikjlCqVSFJ5taynRirQh0qA&usqp=CAU",
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVDIzGKU90PmkqBf5mDksiW5QXcGrkC4LGe85BnstVN8uFwNXsBOL7TSKs",
+          "https://images.unsplash.com/photo-1623697899811-f2403f50685e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fG5vdGVib29rfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
         "https://loremflickr.com/cache/resized/31337_52460626031_c2c372c811_b_640_480_nofilter.jpg",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXhX0DDD2WbcHEukn1rKaS03IO71a7-Gp08Q&usqp=CAU",
     "https://loremflickr.com/cache/resized/65535_52145054950_27a526486c_z_640_480_nofilter.jpg",
@@ -49,7 +49,7 @@
 
 
       let dashProduct=document.querySelector("dashPro")
-
+     
       let arrBooks=["https://images-eu.ssl-images-amazon.com/images/I/51IirLv9gXL.jpg",
     "https://images-eu.ssl-images-amazon.com/images/I/51L7oNmTPYL.jpg",
   "https://images-eu.ssl-images-amazon.com/images/I/51bC1IZlNzL.jpg",
@@ -98,41 +98,96 @@ async function getdata(){
     let res=await fetch(url)
     let out=await res.json()
     data=[...out]
-    console.log(out)
-    console.log(data)
-
-    displayBook(out)
+    // console.log(out)
+    // console.log(data)
+    localStorage.setItem("dashdata",JSON.stringify(data))
+    // displayBook(out)
   }catch(err){
     alert(err)
   }
      
 }
 getdata()
+ let LSdata=JSON.parse(localStorage.getItem("dashdata"))
+let arrImage=JSON.parse(localStorage.getItem("arrimage"))
+// console.log(LSdata)
+// console.log(arrImage)
+
+// This id for to search the product
+
+let searchProduct=document.querySelector("#searchProduct")
+searchProduct.addEventListener("click",function(){
+  
+ let searchbar=document.querySelector("#searchbar").value
+  let newdata=LSdata.filter((e)=>{
+    return e.details.toLowerCase().includes(searchbar.toLowerCase())
+  })
+  if(newdata.length==0){
+    alert("SORYY NOT FOUND")
+   
+  }else{
+    displayBook(newdata)
+  }
+   
+  
+  
+
+
+})
+
+
+
+let notfound=document.querySelector("#notfound")
 let dashbook=document.querySelector("#dashbook")
 let book=0
 let dashstationary=document.querySelector("#dashstationary")
 let stationary=0
 function displayBook(data){
-
-  for(let i=0;i<20;i++){
+  dashbook.innerText=null
+ 
+  for(let i=0;i<data.length;i++){
     let div=document.createElement("div")
     let img=document.createElement("img")
-    img.src=  arrBooks[book]
+    img.src=arrImage[parseInt(data[i].id1)-1]
+   
+    // img.addEventListener("click", function () {
+    //   data[i].img =  mainArr[data[i].index];
+    //   localStorage.setItem("description", JSON.stringify(data[i]));
+    //   window.location.href = "description.html";
+    // });
     let name=document.createElement("h1")
     name.innerText=data[i].name
+   
     let desc=document.createElement("p")
     desc.innerText= data[i].description1
+    desc.style.color="rgb(101, 60, 0)"
     let price=document.createElement("p")
-    price.innerText= "Price : "+data[i].price
+    price.style.color="rgb(101, 60, 0)"
+    if(data[i].price<100){
+      price.innerText= "Price : "+data[i].price*100
+    }else{
+      price.innerText= "Price : "+data[i].price
+    }
+   
     let rating=document.createElement("p")
     rating.innerText= "Rating : "+data[i].rating/10+"*"
-    let category=document.createElement("h5")
+    rating.style.color="	rgb(101, 60, 0)"
+    let category=document.createElement("h4")
     category.innerText=data[i].category
+    category.style.color="rgb(101, 60, 0)"
   let buy=document.createElement("button")
   buy.innerText="Buy Now"
   buy.setAttribute("class","buy")
   buy.addEventListener("click",function(){
     buyProduct(data[i],i)
+    if(data[i].price<100){
+      let priceProduct=data[i].price*100
+      localStorage.setItem("priceProduct",JSON.stringify(priceProduct))
+    }else{
+      let priceProduct=data[i].price
+      localStorage.setItem("priceProduct",JSON.stringify(priceProduct))
+    }
+    
 })
   let cart=document.createElement("button")
  cart.innerText="Add to cart"
@@ -146,41 +201,11 @@ function displayBook(data){
   }
    
 
-for(let i=21;i<data.length;i++){
-  let div=document.createElement("div")
-          let img=document.createElement("img")
-          img.src=  arrstat[ stationary]
-          let name=document.createElement("h1")
-          name.innerText=data[i].name
-          let desc=document.createElement("p")
-          desc.innerText= data[i].description1
-          let price=document.createElement("p")
-          price.innerText= "Price : "+data[i].price
-          let category=document.createElement("h5")
-          category.innerText=data[i].category
-          let rating=document.createElement("p")
-        
-          rating.innerText= "Rating : "+data[i].rating/10+"*"
-        let buy=document.createElement("button")
-        buy.innerText="Buy Now"
-        buy.addEventListener("click",function(){
-             buyProduct(data[i],i)
-        })
-        buy.setAttribute("class","buy")
-        let cart=document.createElement("button")
-        cart.innerText="Add to cart"
-        cart.setAttribute("class","cart")
-        cart.addEventListener("click",function(){
-        sendTocart(data[i],i)
-     })
-          div.append(img,name,desc,price,rating,category,buy,cart)
-          dashstationary.append(div)
-          stationary++
-}
+
 
    
       }
-
+      displayBook(LSdata)
      
  
       function sendTocart(val,ind){
@@ -217,3 +242,7 @@ for(let i=21;i<data.length;i++){
         window.location.href="buy.html"
       }
 
+// let about=document.querySelector("#about")
+// about.addEventListener("click",function(){
+//   let div
+// })

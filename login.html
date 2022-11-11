@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <style>
 
         #box{
@@ -39,18 +39,26 @@
             height: 70vh;
             border-radius: 15px 0px 0px 15px;
         }
-       form>input{
+       #email,#password{
         width: 70%;
        padding: 10px;
-       border: 0px solid black;
+       border: 1px solid black;
        border-radius: 5px;
        }
        #submit{
+        width: 75%;
        font-size: 20px;
+       padding: 10px;
+       border-radius: 5px;
        background-color: rgb(93, 220, 20);
        color: white;
        border: 1px solid  rgb(255, 255, 255);
      
+       }
+       #remeber{
+        width: 0px;
+        margin-right: 180px;
+        text-align: left;
        }
        @media screen and (min-width:800px) and (max-width:1000px){
         #box>div:nth-child(1) {
@@ -94,6 +102,7 @@
     </style>
 </head>
 <body>
+   
    <div id="box">
            
             <div>
@@ -101,11 +110,13 @@
             </div>
             <div>
                 <form>
-                    <h1>Signin</h1>
+                    <h1>Login</h1>
                     <label for="email">Email</label><br>
                     <input type="email" placeholder="Enter Your Email" id="email" required><br><br>
                      <label for="password">Password</label><br>
-                     <input type="password" placeholder="Enter Password" id="password"><br><br>
+                     <input type="password" placeholder="Enter Password" id="password"><br>
+                     <input type="checkbox" id="remember" name="remember" value="remember">
+                     <label for="remeber">Remember</label><br><br>
                      <input type="submit" id="submit">
                 </form>
                 <p>If you are new then ,please first  <a href="signup.html">Signup</a></p>

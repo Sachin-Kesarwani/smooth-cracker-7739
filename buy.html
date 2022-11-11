@@ -4,9 +4,157 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Payment</title>
+    <style>
+        h1{
+            text-align: center;
+            color: blue;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+        .box{
+            border: 1px solid rgb(255, 255, 255);
+            width: 30%;
+            margin: auto;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+          border-radius: 15px;
+        }
+        form{
+           
+            width: 50%;
+            margin: auto;
+            margin-top: 30px;
+           border-radius: 15px;
+            padding: 5%;
+            background-color: rgb(85, 242, 182);
+           
+        }
+        .box>form>input{
+            padding: 5px;
+        }
+        .box>div{
+           
+           margin: 30px;
+           
+        }
+        .box>div>button{
+            display: block;
+            margin: auto;
+            background-color: rgb(255, 136, 0);
+            color: white;
+            font-size: 15px ;
+            font-weight: bold;
+            padding: 15px;
+            border: 1px solid white;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Payment section</h1>
+    <h1>PAYMENT</h1>
+    <div class="box">
+        <form>
+            <label for="name">Your Name</label><br>
+            <input id="name" placeholder="Enter Your Nmae" type="text"><br><br>
+            <label for="cardNum">Card Number</label><br>
+            <input placeholder="Enter Your Card Number" id="cardNum" maxlength="16" type="tel"><br><br>
+            <label for="cvv">CVV</label><br>
+            <input placeholder="Enter Correct CVV" id="cvv" type="password"><br><br>
+            <label for="month">Valid thru</label><br>
+           <select id="month">
+           
+            <option value="">MM</option>
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6">06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+
+           </select>
+           <select id="year">
+                <option value="">YY</option>
+                <option value="22">2022</option>
+                <option value="23">2023</option>
+                <option value="24">2024</option>
+                <option value="25">2025</option>
+                <option value="26">2026</option>
+                <option value="27">2027</option>
+                <option value="28">2028</option>
+                <option value="29">2029</option>
+           </select>
+        </form>
+        <div>
+            <button id="pay">Continue To Payment</button>
+        </div>
+       
+    </div>
 </body>
 </html>
+<script>
+function lsdataStore(){
+    let obj={
+        card:1234567890123456,
+        cvv:555,
+        month:6,
+        year:25
+    }
+    localStorage.setItem("payWB",JSON.stringify(obj))
+}
+lsdataStore()
+      let LSdata=JSON.parse(localStorage.getItem("payWB"))
+      let form=document.querySelector("form")
+      
+      let pay=document.querySelector("#pay")
+console.log(LSdata.card,LSdata.cvv, typeof LSdata.month, typeof LSdata.year)
+
+      console.log( typeof form.month.value)
+      pay.addEventListener("click",check)
+
+      function check(){
+        if(form.cardNum.value!=""&&form.cvv.value!=""&&form.month.value!=""&&form.year.value!=""){
+            if(LSdata.card==form.cardNum.value){
+              if(LSdata.cvv==form.cvv.value){
+                 if(LSdata.month==form.month.value && LSdata.year==form.year.value ){
+               alert("Every thing is fine , now enter OTP")
+               window.location=("otp.html")
+               pay.addEventListener("click",function(){
+                sendotp()
+                })
+            }else{
+                alert("Something went wrong , Check Card Expiry")
+            }
+         }else{
+            alert("Something went wrong ,Check Your CVV")
+         }
+       }else{
+        alert("Something went wrong ,Check Your Card Number")
+       }
+        }else{
+            alert("You did not Enter any payment data")
+        }
+      
+      }
+      let cartdata=JSON.parse(localStorage.getItem("priceProduct"))
+      let sum=0
+      function payment(){
+            sum=parseInt(cartdata)
+        
+        pay.innerText="PAY "+"₹"+sum
+        // pay.addEventListener("click",function(){
+        //     sendotp()
+        // })
+      }
+      payment()
+    
+       function sendotp(){
+        window.location=("otp.html")
+       }
+</script>
