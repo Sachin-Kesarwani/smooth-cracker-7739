@@ -149,12 +149,11 @@ function displayBook(data){
     let div=document.createElement("div")
     let img=document.createElement("img")
     img.src=arrImage[parseInt(data[i].id1)-1]
-   
-    // img.addEventListener("click", function () {
-    //   data[i].img =  mainArr[data[i].index];
-    //   localStorage.setItem("description", JSON.stringify(data[i]));
-    //   window.location.href = "description.html";
-    // });
+    img.addEventListener("click", function () {
+      data[i].img =mainArr[parseInt(data[i].id1)-1];
+      localStorage.setItem("description", JSON.stringify(data[i]));
+      window.location.href = "description.html";
+    });
     let name=document.createElement("h1")
     name.innerText=data[i].name
    
@@ -238,9 +237,96 @@ function displayBook(data){
   
 
       function buyProduct(data,i){
-        console.log("kkk")
         window.location.href="buy.html"
       }
+   
+    //  let body=document.querySelector("body")
+     let contacts=document.querySelector("#contact")
+     contacts.addEventListener("click",function(){
+
+          contact()
+     })
+    //  contact.addEventListener("doubleclick",function(){
+    //   displayBook(LSdata)
+    //  })
+
+    function contact(e){
+    //  e.preventDefault()
+      let div=document.createElement("div")
+      div.setAttribute("id","contactdiv")
+      let head=document.createElement("h1")
+      head.innerText="Contact Foam"
+      let label=document.createElement("h3")
+      label.innerText="Full Name : "
+      
+      let name=document.createElement("input")
+      name.placeholder="Enter Your Name"
+      name.setAttribute("id","name")
+      let label2=document.createElement("h3")
+      label2.innerText="Your email : "
+
+      let email=document.createElement("input")
+      email.type="email"
+      email.placeholder="Enter Your Email"
+      let label3=document.createElement("h3")
+      label3.innerText="Contact no : "
+      let mobile=document.createElement("input")
+      mobile.type="number"
+      mobile.innerText="Enter Your Mobile"
+      mobile.placeholder="Enter your Contact no"
+      let label4=document.createElement("h3")
+      label4.innerText="Your Message : "
+      let text=document.createElement("textarea")
+      text.innerText="Write Your Message For us"
+      text.cols="50"
+      text.rows="5"
+      let submit=document.createElement("button")
+      submit.innerText="Submit"
+      submit.setAttribute("id","Fsubmit")
+      let remove=document.createElement("button")
+      remove.innerText="Not Interested"
+      remove.setAttribute("id","Fremove")
+      remove.addEventListener("click",function(){
+        div.remove()
+      })
+      
+      div.append(head,label,name,label2,email,label3,mobile ,label4,text,remove,submit)
+     body.append(div)
+
+   
+   submit.addEventListener("click",function(e){
+    e.preventDefault()
+    let obj={
+      name:name.value,
+      email:email.value,
+      mbl:mobile.value,
+      message:text.value
+    }
+    if(obj.value==""||obj.email==""||obj.mbl==""){
+      alert("Plesae Fill complete data")
+    }else{
+ // message(obj)
+ let data=JSON.parse(localStorage.getItem("feedback"))||[]
+ data.push(obj)
+ localStorage.setItem("feedback",JSON.stringify(data))
+ div.remove()
+    }
+       
+   })
+
+    }
+
+// function message(obj){
+//    let data=JSON.parse(localStorage.getItem("feedback"))||[]
+//     data.push(obj)
+//     localStorage.setItem("feedback",JSON.stringify(data))
+
+// }
+
+
+
+
+
 
 // let about=document.querySelector("#about")
 // about.addEventListener("click",function(){

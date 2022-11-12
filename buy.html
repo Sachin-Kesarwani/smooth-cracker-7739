@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
+    <link rel = "icon" href = 
+    "file:///C:/Users/sachi/Downloads/b.jpg" 
+            type = "image/x-icon">
+    <link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         h1{
             text-align: center;
-            color: blue;
+            color: rgb(19, 53, 223);
             font-size: 40px;
             font-weight: bold;
             font-family: sans-serif;
@@ -17,18 +22,19 @@
             border: 1px solid rgb(255, 255, 255);
             width: 30%;
             margin: auto;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+            /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
           border-radius: 15px;
         }
         form{
            
-            width: 50%;
+            width: 60%;
             margin: auto;
             margin-top: 30px;
            border-radius: 15px;
             padding: 5%;
-            background-color: rgb(85, 242, 182);
-           
+            border: 2px solid rgb(245, 245, 245);
+            background-color:bisque;
+            box-shadow: rgba(30, 30, 174, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(87, 151, 215, 0.35) 0px -2px 6px 0px inset;
         }
         .box>form>input{
             padding: 5px;
@@ -48,6 +54,36 @@
             padding: 15px;
             border: 1px solid white;
             border-radius: 10px;
+        }
+        .box>div>button:hover{
+            background-color: rgb(66, 255, 66);
+            color: black;
+        }
+        @media screen and (min-width:900px)  and (max-width:1150px){
+            .box{
+                width: 40%;
+            }
+        }
+        @media screen and (min-width:700px)  and (max-width:899px){
+            .box{
+                width: 50%;
+            }
+        }
+        @media screen and (min-width:500px)  and (max-width:699px){
+            .box{
+                width: 60%;
+            }
+            form{
+                width: 60%;
+            }
+        }
+        @media screen and (min-width:100px)  and (max-width:499px){
+            .box{
+                width: 90%;
+            }
+            form{
+                width: 85%;
+            }
         }
     </style>
 </head>
@@ -90,6 +126,15 @@
                 <option value="28">2028</option>
                 <option value="29">2029</option>
            </select>
+           <h4>Selact Card</h4>
+           <input type="checkbox" id="paypal">
+           <label for="paypal"><i class="fa fa-credit-card" style="font-size:38px;color:rgb(89, 171, 253)"></i></label><br>
+           <input type="checkbox" id="mscard">
+           <label for="mscard"><i class="fa fa-cc-mastercard" style="font-size:38px;background-color: orange;color:rgb(255, 255, 255)"></i></label><br>
+           <input type="checkbox" id="visa">
+           <label for="visa"><i class="fa fa-cc-visa" style="font-size:38px;color:red"></i></label><br>
+           <input type="checkbox" id="gwallet">
+           <label for="gwallet"><i class="fa fa-google-wallet" style="font-size:38px;color:rgb(89, 89, 222);"></i></label>
         </form>
         <div>
             <button id="pay">Continue To Payment</button>
