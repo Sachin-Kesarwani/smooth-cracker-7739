@@ -3,7 +3,7 @@
 #nav{
     border: 1px solid rgb(255, 255, 255);
     height: 80px;
-    width: 98%;
+    width: 100%;
     margin: auto;
     display: flex;
     /* overflow: hidden; */
@@ -47,7 +47,7 @@ a:hover{
   }
 #login>h1{
     color: rgb(0, 17, 255);
-
+    background-image: conic-gradient(from 90deg, red, yellow, green);
 }
 #search>input{
     width: 70%;
@@ -76,6 +76,7 @@ a:hover{
     padding: 16px;
     font-size: 25px;
     border: none;
+    
   }
   
   .dropdown {
@@ -105,7 +106,7 @@ a:hover{
   }
   
   .dropdown-content a:hover {
-    background-color: rgb(245, 12, 12);
+    background-color: rgb(255, 15, 15);
     color: white;
 }
   
@@ -135,6 +136,53 @@ a:hover{
  #gif >img{
 width:100%;
  }
+ #contactdiv{
+  display: block;
+  background-image:url("https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228__480.jpg");
+  text-align: left;
+  width: 35%;
+  height: 70vh;
+  /* text-align: center; */
+  margin-left: 33%;
+  margin-right: 32%;
+  border: 1px solid #ffffff;
+  position: fixed; 
+  top: 20vh;
+  overflow: scroll;
+ padding-left: 3vw;
+  border-radius: 10px;
+ 
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+ }
+ #contactdiv>h1, #contactdiv>h3{
+  color: rgb(59, 20, 20);
+ }
+ #contactdiv>input{
+  padding: 2vh;
+  margin: 1vh;
+  width: 70%;
+  border: 2px solid green;
+  border-radius: 4px;
+  background-color: rgb(249, 249, 249);
+ }
+ #Fsubmit {
+  font-size: 20px;
+  margin: 1vh;
+  padding: 1vh;
+  background-color: rgb(55, 255, 0);
+  border: 0px solid white;
+  border-radius: 5px;
+  color: white;
+ }
+ #Fremove{
+  font-size: 20px;
+  margin: 1vh;
+  border: 0px solid white;
+  border-radius: 5px;
+  padding: 1vh;
+  color: white;
+  background-color: rgb(255, 0, 0);
+ }
  #slideimage{
   width: 70%;
   margin: auto;
@@ -148,7 +196,8 @@ width:100%;
   width: 100%;
   height: 100%;
   border-radius: 10px;
- }  .responsive {
+ }  
+ .responsive {
   width: 100%;
   height: auto;
 }
@@ -165,7 +214,7 @@ width:100%;
   width: 90%;
   margin: auto;
   column-gap: 1%;
-  row-gap: 8px;
+  row-gap: 10px;
 
  }
  #dashbook,#dashstationary,#dashtech> h1{
@@ -184,12 +233,16 @@ width:100%;
   color: rgb(0, 0, 0);
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(35, 162, 190) 0px 0px 0px 3px;
+
 }
 #dashbook>div>img ,#dashstationary>div>img ,#dashtech>div>img ,#box>div>img{
   width: 100%;
   height: 40%;
   border-radius: 5px;
 }
+/* #dashbook>div>img:hover ,#dashstationary>div>img:hover ,#dashtech>div>img:hover ,#box>div>img:hover{
+  transform: scale(1.05); 
+} */
 .buy{
  margin: 10px;
   height: auto;
@@ -294,6 +347,7 @@ width:100%;
   }
   #slideimage{
     height: 60vh;
+    margin-top: 8vh;
   }
   #dashbook ,#dashstationary ,#dashtech ,#box{
     grid-template-columns: repeat(3,1fr);
@@ -307,6 +361,16 @@ width:100%;
    #dashbook>div>img ,#dashstationary>div>img ,#dashtech>div>img ,#box>div>img{
     width: 100%;
     height: 40%;
+  }
+  #footer{
+    height: 12vh;
+  }
+  #contactdiv{
+    width: 60%;
+  height: 70vh;
+  /* text-align: center; */
+  margin-left: 20%;
+  margin-right: 20%;
   }
 }
 @media screen and (min-width:450px) and (max-width:699px){
@@ -328,6 +392,16 @@ width:100%;
     width: 100%;
     height: 30%;
   }
+  #footer{
+    height: 14vh;
+  }
+  #contactdiv{
+    width: 70%;
+  height: 70vh;
+  /* text-align: center; */
+  margin-left: 15%;
+  margin-right: 15%;
+  }
 }
 @media screen and (min-width:100px) and (max-width:499px){
   #gif{
@@ -335,6 +409,9 @@ width:100%;
     margin-left: 20%;
     margin-right: 20%;
   
+  }
+  #cartIcon{
+    display: none;
   }
   #slideimage{
     height: 20vh;
@@ -349,6 +426,16 @@ width:100%;
    #dashbook>div>img ,#dashstationary>div>img ,#dashtech>div>img ,#box>div>img{
     width: 100%;
     height: 30%;
+  }
+  #footer{
+    height:auto;
+  }
+  #contactdiv{
+    width: 80%;
+  height: 70vh;
+  /* text-align: center; */
+  margin-left: 7%;
+  margin-right: 13%;
   }
 }
  

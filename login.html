@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel = "icon" href = 
+    "file:///C:/Users/sachi/Downloads/b.jpg" 
+            type = "image/x-icon">
+    <link>
     <style>
 
         #box{
@@ -97,7 +101,14 @@
             width: 95%;
             height: auto;
             padding-bottom: 10px;
+            border-radius: 0px 0px 15px 15px;
        }
+       #box>div>img{
+        border-radius: 15px 15px 0px 0px;
+       }
+       /* #box>div:nth-child(2){
+        border-radius: 0px 0px 15px 15px;
+       } */
     }
     </style>
 </head>
@@ -114,7 +125,7 @@
                     <label for="email">Email</label><br>
                     <input type="email" placeholder="Enter Your Email" id="email" required><br><br>
                      <label for="password">Password</label><br>
-                     <input type="password" placeholder="Enter Password" id="password"><br>
+                     <input type="password" placeholder="Enter Password" id="password" ><br>
                      <input type="checkbox" id="remember" name="remember" value="remember">
                      <label for="remeber">Remember</label><br><br>
                      <input type="submit" id="submit">

@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
+    <link rel = "icon" href = 
+    "file:///C:/Users/sachi/Downloads/b.jpg" 
+            type = "image/x-icon">
+    <link>
     <style>
           #box{
             display: flex;
@@ -30,7 +34,7 @@
             border: 1px solid rgb(255, 255, 255);
             padding-left: 5%;
             border-radius: 0px 15px 15px 0px;
-            background-color: rgb(227, 190, 134);
+            background-color: rgb(232, 192, 245);
         }
         #box>div>img{
             width:100% ;
@@ -48,7 +52,7 @@
        width: 70%;
        padding: 10px;
        border-radius: 5px;
-       background-color: rgb(220, 20, 20);
+       background-color: rgb(255, 0, 0);
        color: white;
        border: 1px solid  rgb(220, 20, 20);
      
@@ -91,16 +95,23 @@
             height: auto;
             padding-bottom: 10px;
        }
+       #box>div>img{
+        border-radius: 15px 15px 0px 0px;
+       }
+       #box>div:nth-child(2){
+        border-radius: 0px 0px 15px 15px;
+       }
     }
     form>h1{
         color: green;
     }
+
     </style>
 </head>
 <body>
     <div id="box">
         <div>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4O6g1GUO-ai9-ojKdzqAcLxBmeE0j5depJvbHoM_w3JUCC7kl8VS3ySYzQK2x-6ODjOw&usqp=CAU">
+              <img src="https://cdn.pixabay.com/photo/2017/02/08/17/24/fantasy-2049567__480.jpg">
         </div>
         <div>
             <form>
@@ -110,7 +121,7 @@
                 <label for="email">Email</label><br>
                 <input type="email" id="email" placeholder="Enter Your Email" required><br><br>
                 <label for="password">Password</label><br>
-                <input type="number" id="password" placeholder="Enter at least 8 char paassword" required minlength="8"><br>
+                <input type="number" id="password" placeholder="Enter Paassword" required><br>
                 <input type="checkbox" id="remember" name="remember" value="remember">
                 <label for="remeber">Remember</label><br><br>
                 <input type="submit" id="submit">
