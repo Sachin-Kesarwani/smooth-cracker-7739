@@ -5,7 +5,7 @@
     let div=document.createElement("div")  
     div.setAttribute("id","gif")
        let image=document.createElement("img")
-       image.src="file:///C:/Users/sachi/Downloads/Untitled%20design.gif"
+       image.src="https://thumbs.dreamstime.com/b/open-book-profit-icons-above-close-up-hd-video-big-concept-221172255.jpg"
        body.addEventListener("click",function(){
         div.remove()
        })
@@ -17,7 +17,7 @@
       
   }
   gif()
- 
+  // <a href="https://ibb.co/bbn7y8L"><img src="https://i.ibb.co/bbn7y8L/Welcome-to-world-book-Store.gif" alt="Welcome-to-world-book-Store" border="0"></a>
 
   let slideArr=["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbXCpiYKfm11YUjU715AE4xto0XO6fzBiL8Q&usqp=CAU",
                  "https://media.istockphoto.com/id/516114240/photo/colorful-school-and-office-supplies.jpg?s=612x612&w=0&k=20&c=s4OeoA-4riVsFzgHJijxTC9MGLQgmrz6y40O9mEt-2k=",
@@ -90,7 +90,7 @@ let arrstat=["https://rukminim1.flixcart.com/image/612/612/kl6wx3k0/art-set/a/o/
 let mainArr=[...arrBooks,...arrstat]
 
 localStorage.setItem("arrimage",JSON.stringify(mainArr))
-// let url_1="https://636a8521c07d8f936da08c35.mockapi.io/book"
+
 let data=[]
 async function getdata(){
   let url="https://636a8521c07d8f936da08c35.mockapi.io/book"
@@ -312,19 +312,8 @@ function displayBook(data){
 
     }
 
-// function message(obj){
-//    let data=JSON.parse(localStorage.getItem("feedback"))||[]
-//     data.push(obj)
-//     localStorage.setItem("feedback",JSON.stringify(data))
-
-// }
 
 
 
 
 
-
-// let about=document.querySelector("#about")
-// about.addEventListener("click",function(){
-//   let div
-// })
