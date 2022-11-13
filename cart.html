@@ -52,7 +52,7 @@
   <body>
     <div id="pricetag">
       <h1>Total Price : </h1>
-      <span id="totalPrice"></span>
+      <span id="totalPrice">₹0</span>
       <button id="buy">Buy Now</button>
     </div>
     <div>
@@ -143,7 +143,7 @@
       div.append(img, name,desc, price, rating, category,  cart);
       box.append(div);
     });
-    cartPriceWB.innerText="₹"+cartPrice
+    cartPriceWB.innerText=" ₹ "+cartPrice
     let priceProduct=cartPrice
     localStorage.setItem("priceProduct",JSON.stringify(priceProduct))
     
@@ -159,8 +159,14 @@
   }
 
 let buy=document.querySelector("#buy")
+
 buy.addEventListener("click",function(){
-  window.location.href="buy.html"
+  if(LSdata.length==0){
+    alert("Nothig in the cart")
+  }else{
+    window.location.href="buy.html"
+  }
+  
 })
 
 

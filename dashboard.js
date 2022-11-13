@@ -114,26 +114,24 @@ let arrImage=JSON.parse(localStorage.getItem("arrimage"))
 // console.log(arrImage)
 
 // This id for to search the product
-
+let topheading=document.querySelector(".heading")
 let searchProduct=document.querySelector("#searchProduct")
 searchProduct.addEventListener("click",function(){
   
  let searchbar=document.querySelector("#searchbar").value
   let newdata=LSdata.filter((e)=>{
-    return e.details.toLowerCase().includes(searchbar.toLowerCase())
+    return e.description1.toLowerCase().includes(searchbar.toLowerCase())
   })
   if(newdata.length==0){
     alert("SORYY NOT FOUND")
-   
+    
   }else{
     displayBook(newdata)
+    topheading.innerText="Searched Product"
   }
    
   
-  
-
-
-})
+  })
 
 
 
@@ -144,7 +142,7 @@ let dashstationary=document.querySelector("#dashstationary")
 let stationary=0
 function displayBook(data){
   dashbook.innerText=null
- 
+  topheading.innerText="Top Product"
   for(let i=0;i<data.length;i++){
     let div=document.createElement("div")
     let img=document.createElement("img")
@@ -246,9 +244,7 @@ function displayBook(data){
 
           contact()
      })
-    //  contact.addEventListener("doubleclick",function(){
-    //   displayBook(LSdata)
-    //  })
+    
 
     function contact(e){
     //  e.preventDefault()

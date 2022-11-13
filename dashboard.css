@@ -25,7 +25,7 @@
 
 }
 #search{
-  background-color: rgb(237, 155, 83);
+  background-color:  rgb(237, 155, 83);
     width: 50%;
     margin-top: 20px;
     height: 40px;
@@ -43,7 +43,7 @@ color: rgb(255, 255, 255);
 }
 a:hover{
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: rgb(72, 48, 48);
   }
 #login>h1{
     color: rgb(0, 17, 255);
@@ -58,7 +58,7 @@ a:hover{
 }
 #search>button{
     width: 15%;
-    height: 95%;
+    height: 93%;
    
     border-radius: 0px 25px 25px 0px;
     border: 1px solid rgb(255, 255, 255);
@@ -71,14 +71,18 @@ a:hover{
  
 
 .dropbtn {
-  background-color: rgb(237, 155, 83);
+  background-color:  rgb(237, 155, 83);
     color: white;
     padding: 16px;
     font-size: 25px;
     border: none;
+    /* border: 1px solid black; */
+    border-radius: 10px;
     
   }
-  
+  /* .dropbtn:hover{
+    background:  rgb(237, 155, 83);
+  } */
   .dropdown {
     position: relative;
     display: inline-block;
