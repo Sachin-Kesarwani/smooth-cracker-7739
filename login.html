@@ -139,7 +139,7 @@
 
 
 
-            let LSdata=JSON.parse(localStorage.getItem("WBsignup"))
+            let LSdata=JSON.parse(localStorage.getItem("WBsignup"))||[]
             let form=document.querySelector("form")
             form.addEventListener("submit",function(e){
                 console.log(LSdata)

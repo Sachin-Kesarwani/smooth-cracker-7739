@@ -52,7 +52,7 @@
   <body>
     <div id="pricetag">
       <h1>Total Price : </h1>
-      <span id="totalPrice"></span>
+      <span id="totalPrice">₹0</span>
       <button id="buy">Buy Now</button>
     </div>
     <div>
@@ -109,30 +109,8 @@
       div2.style.display = "flex";
       div2.style.justifyContent = "center";
 
-      // let inc = document.createElement("button");
-      // inc.innerText = "+";
-      // inc.addEventListener("click", function () {
-      //   count++;
-      //   pcs.innerText = count;
-      //   setprice(e,count)
-      //   obj.id1=count
-      // });
-      // let pcs = document.createElement("span");
-      // pcs.innerText ="1";
-      // pcs.setAttribute("class","pcs")
-      // let dec = document.createElement("button");
-      // dec.innerText = "-";
-      // dec.addEventListener("click", function () {
-      //   count--;
-      //   if (count == 0) {
-      //     count = 1;
-      //   }
-      //   obj.id1=count
-      //   pcs.innerText = count;
-      //   setprice(e,count)
-      //  console.log(e,count)
-      // });
-      // div2.append(inc, pcs, dec);
+    
+     
       let cart = document.createElement("button");
       cart.innerText = "Remove";
       cart.setAttribute("class","cart")
@@ -143,7 +121,7 @@
       div.append(img, name,desc, price, rating, category,  cart);
       box.append(div);
     });
-    cartPriceWB.innerText="₹"+cartPrice
+    cartPriceWB.innerText=" ₹ "+cartPrice
     let priceProduct=cartPrice
     localStorage.setItem("priceProduct",JSON.stringify(priceProduct))
     
@@ -159,8 +137,14 @@
   }
 
 let buy=document.querySelector("#buy")
+
 buy.addEventListener("click",function(){
-  window.location.href="buy.html"
+  if(LSdata.length==0){
+    alert("Nothig in the cart")
+  }else{
+    window.location.href="buy.html"
+  }
+  
 })
 
 
